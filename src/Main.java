@@ -13,18 +13,28 @@ public class Main {
         int temp = 0;
         boolean flag = true;
         System.out.println("please enter 9 number betwean 1 to 9 . ");
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
+       int[] temp_ar= new int[3];
+        for (int i = 0; i <3 ; i++) {
+            int k=0;
+            while (k<3){
+                temp_ar[k]=out.nextInt();
+                k++;
+            }
+            for (int j = 0; j <3 ; j++) {
+                temp=temp_ar[j];
                 do {
-                    temp = out.nextInt();
-                    if (1 > temp || temp > 9) {
-                        System.out.println("the number is out of range(1<x<9)! try again!");
-                        flag = false;
-                    } else {
-                        mtx[i][j] = temp;
-                        flag = true;
+                    if(1>temp || temp>9){
+                        System.out.println(temp+"is out of range (1<x<9) . try again!!");
+                        flag=false;
+                    }else {
+                        mtx[i][j]=temp;
+                        flag=true;
                     }
-                } while (!flag);
+
+                    if (!flag){
+                        temp=out.nextInt();
+                    }
+                }while (!flag);
             }
         }
         return mtx;
